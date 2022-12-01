@@ -1,0 +1,15 @@
+<br>
+Our blog has <%= Post.public_count %> post and counting!
+<div class='container'>
+    <h1 class='title'>Blog Page</h1>
+    <br>
+        <% @posts.each do |post| %>
+            <% unless post.archived? %>
+                <div class="list-group w-50">
+                <button type="button" class="list-group-item list-group-item-action"><%= link_to post.title, post%></button>
+                </div>
+            <% end %>
+        <% end %>
+<br>
+<%= button_to "New Post", new_post_path, class:'btn btn-primary' %>
+</div>

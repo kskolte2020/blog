@@ -1,0 +1,31 @@
+<br>
+
+<div class='container'>
+
+    <div class="jumbotron">
+    <h1 class="display-4"><%= @post.title %></h1>
+    <br>
+    <p class="lead"><%= @post.content %></p>
+    <hr class="my-4">
+        <%= button_to "Edit", edit_post_path(@post), class:'btn btn-secondary' %> 
+        <br/>
+        <%= button_to "Destroy", post_path(@post), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"},
+                        class:"btn btn-danger"
+                    %>
+    </div>
+
+    <div class="card">
+    <div class="card-header">
+        Comments
+    </div>
+   
+    <div class="card-body">
+        
+        <%= render @post.comments %>
+        <br>
+        <h5 class="card-title">Add Comment</h5>
+        <%= render 'comments/form' %>
+  </div>
+</div>

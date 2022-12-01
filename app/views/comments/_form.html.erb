@@ -1,0 +1,15 @@
+<%= form_with model: [ @post, @post.comments.build ] do |form| %>
+<div class='field form-group'>
+    <%= form.text_field :commenter, class:"form-control", placeholder:"Commenter Name" %>
+    <br>
+    <%= form.text_area :body, class:"form-control", placeholder:"Comment" %>
+    <br>
+    <div>
+        <%= form.label :status %><br>
+        <%= form.select :status, ['public', 'private', 'archived'], class:"form-control", selected:'public' %>
+    </div>
+    <br>
+    <%= form.submit class:'btn btn-primary' %>
+    <br>
+</div>
+<% end %>

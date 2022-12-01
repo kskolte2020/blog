@@ -1,0 +1,31 @@
+<%= simple_form_for @post do |form| %>
+    <div class='field form-group'>
+        <%= form.label :title, style: "display: block" %>
+        <%= form.text_field :title, class:"form-control", placeholder:"Title" %>
+        <% post.errors.full_messages_for(:title).each do |msg| %>
+            <div><%= msg %></div>
+        <% end %>
+    </div>
+    <div class='field form-group'>
+        <%= form.label :content, style: "display: block" %>
+        <%= form.text_area :content, class:"form-control", placeholder:"Content" %>
+        <% post.errors.full_messages_for(:content).each do |msg| %>
+            <div><%= msg %></div>
+        <% end %>
+        <%= form.label :status %><br>
+        <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+        <!-- Split dropright button -->
+        <div class="btn-group dropright">
+        <button type="button" class="btn btn-secondary">
+            Split dropright
+        </button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropright</span>
+        </button>
+        <div class="dropdown-menu">
+            <!-- Dropdown menu links -->
+        </div>
+        </div>
+    </div>
+<%= form.button :submit, 'Create', class: 'btn btn-primary' %>
+<% end %>
